@@ -23,6 +23,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,8 +32,17 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "livro")
+@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Livro.findAll", query = "SELECT l FROM Livro l")})
+    @NamedQuery(name = "Livro.findAll", query = "SELECT l FROM Livro l"),
+    @NamedQuery(name = "Livro.findById", query = "SELECT l FROM Livro l WHERE l.id = :id"),
+    @NamedQuery(name = "Livro.findByNome", query = "SELECT l FROM Livro l WHERE l.nome = :nome"),
+    @NamedQuery(name = "Livro.findByPreco", query = "SELECT l FROM Livro l WHERE l.preco = :preco"),
+    @NamedQuery(name = "Livro.findByDatapublicacao", query = "SELECT l FROM Livro l WHERE l.datapublicacao = :datapublicacao"),
+    @NamedQuery(name = "Livro.findBySinopse", query = "SELECT l FROM Livro l WHERE l.sinopse = :sinopse"),
+    @NamedQuery(name = "Livro.findByFoto1", query = "SELECT l FROM Livro l WHERE l.foto1 = :foto1"),
+    @NamedQuery(name = "Livro.findByFoto2", query = "SELECT l FROM Livro l WHERE l.foto2 = :foto2"),
+    @NamedQuery(name = "Livro.findByFoto3", query = "SELECT l FROM Livro l WHERE l.foto3 = :foto3")})
 public class Livro implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,6 +61,14 @@ public class Livro implements Serializable {
     @Column(name = "datapublicacao")
     @Temporal(TemporalType.DATE)
     private Date datapublicacao;
+    @Column(name = "sinopse")
+    private String sinopse;
+    @Column(name = "foto1")
+    private String foto1;
+    @Column(name = "foto2")
+    private String foto2;
+    @Column(name = "foto3")
+    private String foto3;
     @JoinTable(name = "autor_livro", joinColumns = {
         @JoinColumn(name = "livro", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "autor", referencedColumnName = "id")})
@@ -108,6 +127,39 @@ public class Livro implements Serializable {
         this.datapublicacao = datapublicacao;
     }
 
+    public String getSinopse() {
+        return sinopse;
+    }
+
+    public void setSinopse(String sinopse) {
+        this.sinopse = sinopse;
+    }
+
+    public String getFoto1() {
+        return foto1;
+    }
+
+    public void setFoto1(String foto1) {
+        this.foto1 = foto1;
+    }
+
+    public String getFoto2() {
+        return foto2;
+    }
+
+    public void setFoto2(String foto2) {
+        this.foto2 = foto2;
+    }
+
+    public String getFoto3() {
+        return foto3;
+    }
+
+    public void setFoto3(String foto3) {
+        this.foto3 = foto3;
+    }
+
+    @XmlTransient
     public List<Autor> getAutorList() {
         return autorList;
     }

@@ -1,3 +1,5 @@
+<%@page import="modelo.Editora"%>
+<%@page import="modelo.Categoria"%>
 <%@page import="dao.LivroDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelo.Autor"%>
@@ -14,6 +16,9 @@
     String msg = "";
     String classe = "";
     AutorDAO dao = new AutorDAO();
+    Categoria c = new Categoria();
+    Editora e = new Editora();
+    
     if(request.getMethod().equals("POST")){
         //pego uma lista de autores(com mesmo name)
         String[] autoresid = request.getParameter("autores").split(";");
@@ -22,7 +27,8 @@
         l.setNome("StorTroopers - Uma viagem que nao sai");
         l.setDatapublicacao(new Date());
         l.setPreco(13.12f);
-        
+        l.setCategoria(c);
+        l.setEditora(e);
         
         
         //Autores

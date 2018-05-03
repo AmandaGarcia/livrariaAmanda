@@ -19,6 +19,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -29,6 +30,12 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(name = "Autor.findAll", query = "SELECT a FROM Autor a")})
 public class Autor implements Serializable {
+
+    @JoinTable(name = "autor_livro", joinColumns = {
+        @JoinColumn(name = "autor", referencedColumnName = "id")}, inverseJoinColumns = {
+        @JoinColumn(name = "livro", referencedColumnName = "id")})
+    @ManyToMany
+    private List<Livro> livroList;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -134,6 +141,15 @@ public class Autor implements Serializable {
     @Override
     public String toString() {
         return "modelo.Autor[ id=" + id + " ]";
+    }
+
+    @XmlTransient
+    public List<Livro> getLivroList() {
+        return livroList;
+    }
+
+    public void setLivroList(List<Livro> livroList) {
+        this.livroList = livroList;
     }
     
 }
