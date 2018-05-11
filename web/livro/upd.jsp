@@ -1,3 +1,6 @@
+<%@page import="dao.EditoraDAO"%>
+<%@page import="dao.AutorDAO"%>
+<%@page import="dao.CategoriaDAO"%>
 <%@page import="util.StormData"%>
 <%@page import="java.math.BigDecimal"%>
 <%@page import="modelo.Categoria"%>
@@ -10,34 +13,14 @@ String msg ="";
 String classe = "";
     
     LivroDAO dao = new LivroDAO();
+    CategoriaDAO cdao = new CategoriaDAO();
+    AutorDAO adao = new AutorDAO();
+    EditoraDAO edao = new EditoraDAO();
+    
     Livro obj = new Livro();
-    Editora e = new Editora();
-    Categoria c = new Categoria();
-    BigDecimal preco = new BigDecimal(Float.toString(123.4f));
 
     //verifica se é postm ou seja, quer alterar
-    if(request.getMethod().equals("POST")){
-        
-        //popular com oq ele digitou no form
-        obj.setId(Integer.parseInt(request.getParameter("txtId")));
-        obj.setNome(request.getParameter("txtNome"));
-        obj.setPreco(Float.parseFloat(request.getParameter("txtPreco")));   
-        obj.setSinopse(request.getParameter("txtSinopse"));
-        obj.setDatapublicacao(StormData.formata("dd/MM/yyyy"));
-        obj.setEditora(e);
-        obj.setCategoria(c);
-         
-        
-        Boolean resultado = dao.alterar(obj);
-        
-        if(resultado){
-            msg = "Registro alterado com sucesso";
-            classe = "alert-success";
-        }
-        else{
-            msg = "Não foi possível alterar";
-            classe = "alert-danger";
-        }
+    if(request.getMethod().equals("POST")){    
         
     }else{
         //e GET
