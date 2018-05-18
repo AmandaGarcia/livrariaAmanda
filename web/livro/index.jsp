@@ -1,4 +1,4 @@
-<%@page import="java.util.List"%>
+0<%@page import="java.util.List"%>
 <%@page import="modelo.Livro"%>
 <%@page import="dao.LivroDAO"%>
 <%@include file="../cabecalho.jsp" %>
@@ -81,7 +81,7 @@
                         <th>Foto 1</th>
                         <th>Foto 2</th>
                         <th>Foto 3</th>
-                        <th >Ações</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>

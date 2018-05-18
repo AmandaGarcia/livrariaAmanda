@@ -26,7 +26,7 @@ if(request.getMethod().equals("POST")) {
     out.print(session.getId());
     out.print(session.getAttribute("administrador"));
     
-          
+}   
 %>
 <html>
     <head>
@@ -43,8 +43,7 @@ if(request.getMethod().equals("POST")) {
             <label>Senha:</label>
             <input type="password" name="txtSenha" />
             <br/>
-            <button type="button"></button>
-            
+            <button type="submit">OK</button>
         </form>
     </body>
 </html>

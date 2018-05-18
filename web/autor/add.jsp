@@ -80,10 +80,10 @@
                     </div>
                     
                     <div class="form-group">
-                        <label>Foto:</label>
+                        <label>Foto1:</label>
                         <input type="file"  name="txtFoto" required/>
                     </div>
-
+                    
                     <button class="btn btn-warning btn-sm" type="submit">Salvar</button>
 
             </form>

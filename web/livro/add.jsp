@@ -15,7 +15,7 @@
 <%
     String msg = "";
     String classe = "";
-    AutorDAO dao = new AutorDAO();
+    AutorDAO adao = new AutorDAO();
     Categoria c = new Categoria();
     Editora e = new Editora();
     
@@ -24,12 +24,11 @@
         String[] autoresid = request.getParameter("autores").split(";");
         //popular o livro
         Livro l = new Livro();
-        l.setNome("StorTroopers - Uma viagem que nao sai");
+        l.setNome("Livraria - Amanda");
         l.setDatapublicacao(new Date());
         l.setPreco(13.12f);
         l.setCategoria(c);
         l.setEditora(e);
-        
         
         //Autores
         List<Autor> listaautores = new ArrayList<>();
@@ -41,8 +40,7 @@
         
         LivroDAO dao = new LivroDAO();
         dao.incluir(l);
-        
-        
+               
     }
     
     
