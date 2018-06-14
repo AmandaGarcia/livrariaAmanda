@@ -1,9 +1,16 @@
+<%@page import="modelo.Livro"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.LivroDAO"%>
 <%@include file="cabecalho.jsp" %>
+<%
+    LivroDAO dao= new LivroDAO();
+    List<Livro> lista = dao.listar();
+    dao.fecharConexao();
+%>
 
 
 		
 
-	<!-- Slider -->
 	<section class="section-slide">
 		<div class="wrap-slick1">
 			<div class="slick1">
@@ -12,19 +19,19 @@
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
 								<span class="ltext-101 cl2 respon2">
-									Livraria
+									LivrariaShop
 								</span>
 							</div>
 								
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
 								<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
-									NEW SEASON
+									Os melhores lançamentos
 								</h2>
 							</div>
 								
 							<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
 								<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-									Shop Now
+									Compre agora
 								</a>
 							</div>
 						</div>
@@ -87,6 +94,10 @@
 	<div class="sec-banner bg0 p-t-80 p-b-50">
 		<div class="container">
 			<div class="row">
+                            <%
+                                for(Livro livro: lista) {
+                                    %>
+                                
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
 					<!-- Block1 -->
 					<div class="block1 wrap-pic-w">
@@ -111,6 +122,9 @@
 						</a>
 					</div>
 				</div>
+                                    <%} %>
+                               
+                                
 
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
 					<!-- Block1 -->
@@ -163,7 +177,9 @@
 				</div>
 			</div>
 		</div>
+                                
 	</div>
+                                
 
 
 	<!-- Product -->
