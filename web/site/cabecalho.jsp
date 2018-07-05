@@ -219,7 +219,7 @@
 				</li>
 
 				<li>
-					<a href="contact.html">Contact</a>
+					<a href="contact.html">Contato</a>
 				</li>
 			</ul>
 		</div>

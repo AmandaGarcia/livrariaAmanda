@@ -31,6 +31,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Autor.findAll", query = "SELECT a FROM Autor a")})
 public class Autor implements Serializable {
 
+    
+
   
 
     private static final long serialVersionUID = 1L;
@@ -138,6 +140,8 @@ public class Autor implements Serializable {
     public String toString() {
         return "modelo.Autor[ id=" + id + " ]";
     }
+
+   
 
    
     
