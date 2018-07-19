@@ -1,3 +1,4 @@
+<%@page import="dao.CategoriaDAO"%>
 <%@page import="modelo.Categoria"%>
 <%@page import="modelo.Livro"%>
 <%@page import="java.util.List"%>
@@ -10,6 +11,7 @@
     if(request.getParameter("categoriaid")!=null) 
     {
         Integer id = Integer.parseInt(request.getParameter("categoriaid"));
+        CategoriaDAO cdao = new CategoriaDAO();
         Categoria c = cdao.buscarPorChavePrimaria(id);
         lista = c.getLivroList();
     }
